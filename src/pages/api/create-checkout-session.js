@@ -1,6 +1,6 @@
 import { groupBy } from "lodash";
 
-const stripe = require("stripe")("sk_test_51ItwkaSGrizcP6cuT14EDRxpr1XsUn9qnZiX31GLWWI0pqPooKkbwRBbRRKdwvb0jMK1tbmvub57CTyC0wOIZvcZ0070n7nZal");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async (req, res) => {
     const { items, email } = req.body;
