@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .underline-text:hover {
+        text-decoration:underline;
+    }  
+    .link {
+        cursor: pointer; 
+    }
+    .Bold {
+        font-weight: 700
+    }
+    .bottom_nav {
+        color: rgba(255,255,255,0.7);
+        cursor: pointer;
+    }
+    .bottom_nav:hover  {
+       text-decoration: underline 
+    }  
+    .button {
+        @apply p-2 text-xs md:text-sm bg-gradient-to-t from-yellow-400 to-yellow-200 border border-yellow-300 rounded-sm focus:outline-none active:from-yellow-500  outline-none
+    }
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+body {
+   -ms-overflow-style: none;  
+}
