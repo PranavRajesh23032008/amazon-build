@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Currency from "react-currency-formatter";
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../slices/basketSlice';
+import { initialState } from '../slices/basketSlice'
 
 const Product = ({ id, title, price, description, category, image }) => {
     const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const Product = ({ id, title, price, description, category, image }) => {
     const addToCart = () => {
         const product = { id, title, price, description, category, image, rating, prime }
         dispatch(addToBasket(product))
+        localStorage.setItem("Number of Items", initialState.items.length)
     }
 
 

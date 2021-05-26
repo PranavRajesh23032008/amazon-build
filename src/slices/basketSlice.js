@@ -50,5 +50,5 @@ export const {
 export const selectItems = (state) => state.basket.items;
 export const selectTotal = (state) =>
   state.basket.items.reduce((total, item) => total + item.price, 0);
-
+export { initialState }
 export default basketSlice.reducer;
