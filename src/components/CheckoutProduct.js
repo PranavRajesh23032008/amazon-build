@@ -24,7 +24,6 @@ function CheckoutProduct(props) {
 
     function removeItemFromBasket() {
         dispatch(removeFromBasket({ id }));
-
     }
 
     function removeGroupFromBasket() {
@@ -40,7 +39,7 @@ function CheckoutProduct(props) {
 
     return (
         <div className="block py-4 sm:grid sm:grid-cols-5 sm:my-3">
-            <div className="text-center sm:text-left ">
+            <div className="sm:text-left ">
                 <img src={image} width={200} height={200} objectFit="contain" />
             </div>
 
@@ -74,7 +73,7 @@ function CheckoutProduct(props) {
 
             <div className="flex flex-col space-y-2 my-auto justify-self-end mr-2">
                 <div className="flex justify-between xs:justify-start">
-                    <button className="btn sm:p-1" onClick={removeItemFromBasket}>
+                    <button className="btn sm:p-1 focus:outline-none" onClick={removeItemFromBasket}>
                         <MinusSmIcon className="h-5 text-[#023047] dark:text-gray-200" />
                     </button>
                     <div className="p-2 whitespace-normal sm:p-1 sm:whitespace-nowrap text-[#023047] dark:text-gray-200">
@@ -83,7 +82,7 @@ function CheckoutProduct(props) {
                             {quantity}
                         </span>
                     </div>
-                    <button className="btn sm:p-1" onClick={addItemToBasket}>
+                    <button className="btn sm:p-1 focus:outline-none" onClick={addItemToBasket}>
                         <PlusIcon className="h-5 text-[#023047] dark:text-gray-200" />
                     </button>
                 </div>

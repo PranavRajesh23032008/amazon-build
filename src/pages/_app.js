@@ -16,7 +16,8 @@ const MyApp = ({ Component, pageProps }) => {
     <AuthProvider session={pageProps.session}>
       <Provider store={store}>
         <Component {...pageProps} />
-      </Provider> </AuthProvider>);
+      </Provider>
+    </AuthProvider>);
 };
 
 export default MyApp;

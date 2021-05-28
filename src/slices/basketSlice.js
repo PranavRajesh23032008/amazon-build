@@ -11,6 +11,9 @@ export const basketSlice = createSlice({
     hydrate: (state, action) => {
       return action.payload;
     },
+    clearBasket: (state, action) => {
+      state.items = [];
+    },
     // Store actions
     addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
@@ -44,9 +47,9 @@ export const {
   removeFromBasket,
   removeGroupedFromBasket,
   hydrate,
+  clearBasket
 } = basketSlice.actions;
 
-// Selectors - This is how we pull information from the Global store slice
 export const selectItems = (state) => state.basket.items;
 export const selectTotal = (state) =>
   state.basket.items.reduce((total, item) => total + item.price, 0);

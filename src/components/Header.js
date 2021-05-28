@@ -1,14 +1,15 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
-import { selectItems } from '../slices/basketSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { clearBasket, selectItems } from '../slices/basketSlice'
 
 const Header = () => {
     const [session] = useSession()
     const router = useRouter()
     const items = useSelector(selectItems)
+    const dispatch = useDispatch()
     return (
-        <div className="sticky top-0 z-50">
+        <div className={{ position: "sticky" }}>
             {/*Top div*/}
             <div className={"p-3 bg-amazon_blue flex items-center"}>
                 {/*Image*/}
@@ -34,8 +35,8 @@ const Header = () => {
                 </div>
                 <div className={"mt-1 text-white ml-4 flex space-x-5 whitespace-nowrap text-right"}>
                     <div className={"link text-xs"}>
-                        <p onClick={!session ? signIn : signOut} className={"underline-text"}>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
-                        <p className={"Bold"} >Account & Lists</p>
+                        <p>{session ? `Hello, ${session.user.name}` : "Accounds & Details"}</p>
+                        <p onClick={!session ? signIn : signOut} className={"underline-text Bold"}>{session ? `Sign Out` : "Sign in"}</p>
                     </div>
                     <div onClick={() => { router.push('/orders') }} className={"link text-xs underline-text"}>
                         <p>Returns</p>
@@ -50,24 +51,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            {/* Bottom div */}
-            <div className={" flex space-x-4 bg-amazon_blue-light p-1"}>
-                <p className={"bottom_nav flex ml-2"}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="underline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    All
-                </p>
-                <p className={"bottom_nav"}>Prime Videos</p>
-                <p className={"bottom_nav"}>Amazon Business</p>
-                <p className={"bottom_nav"}>Today's Deals</p>
-                <p className={"bottom_nav hidden lg:inline-flex"}>Electronics</p>
-                <p className={"bottom_nav hidden lg:inline-flex"}>Foor & Grocery</p>
-                <p className={"bottom_nav hidden lg:inline-flex"}>Prime</p>
-                <p className={"bottom_nav hidden lg:inline-flex"}>Buy Again</p>
-                <p className={"bottom_nav hidden lg:inline-flex"}>Shopper Toolkit</p>
-                <p className={"bottom_nav hidden xl:inline-flex"}>Health and Personal Care</p>
-            </div>
+
         </div>
     )
 }

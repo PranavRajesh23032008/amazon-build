@@ -1,8 +1,10 @@
 import { buffer } from "micro";
-import * as admin from "firebase-admin";
+import { selectItems } from "../../slices/basketSlice";
+import { useSelector } from "react-redux";
 
+const dispatch = useDispatch();
 const serviceAccount = require("../../../permissions.json");
-
+const items = useSelector(selectItems);
 const app = !admin.apps.length ? admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 }) : admin.app();

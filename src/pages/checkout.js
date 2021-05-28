@@ -8,8 +8,8 @@ import { groupBy } from "lodash";
 import Head from "next/head";
 import { loadStripe } from '@stripe/stripe-js'
 import axios from "axios";
-const stripePromise = loadStripe("pk_test_51ItwkaSGrizcP6culwZLm2MHh2Gx1Mf0IsAXwyJrM03j4iC4vfTSiWJRj9WJPSr79Y4P912ipdwtR6WtdmTIDJgR00UMYz9RQD");
 
+const stripePromise = loadStripe("pk_test_51ItwkaSGrizcP6culwZLm2MHh2Gx1Mf0IsAXwyJrM03j4iC4vfTSiWJRj9WJPSr79Y4P912ipdwtR6WtdmTIDJgR00UMYz9RQD");
 function Checkout() {
     const items = useSelector(selectItems);
     const total = useSelector(selectTotal);
@@ -39,9 +39,6 @@ function Checkout() {
             <Head>
                 <title>Checkout</title>
             </Head>
-            {/* <img
-                src={"https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonPay/Pay_Balance/apay_pc_banner_2.jpg"}
-            /> */}
             <main className="m-5 lg:flex max-w-screen-2xl mx-auto dark:bg-gray-800">
                 {/* Left */}
 
